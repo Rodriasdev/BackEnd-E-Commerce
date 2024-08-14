@@ -1,17 +1,17 @@
-import Product from "../models/Product.js";
+// import Product from "../models/Product.js";
 
-class ProductService {
-    constructor() { }
+// class ProductService {
+//     constructor() { }
 
-    async findAll() {
-        return await Product.find();
-    }
+//     async findAll() {
+//         return await Product.find();
+//     }
 
 
-    async create(product) {
-        return await Product.create(product);
-    }
+//     async create(product) {
+//         return await Product.create(product);
+//     }
 
-}
+// }
 
-export default new ProductService()
+// export default new ProductService()

@@ -3,7 +3,7 @@ import cors from 'cors'
 import morgan from "morgan";
 import { PORT } from '../config/conf.js'
 import productRoutes from '../routes/productos.routes.js'
-import { dbConnection } from "../db/connection.js";
+import { sequelize } from "../db/connection.js";
 
 class Server {
 
@@ -18,7 +18,14 @@ class Server {
     }
 
     async dbConnect(){
-        await dbConnection()
+        try {
+            await sequelize.authenticate()
+            console.log('Base de datos conectada')
+        } catch (error) {
+            console.log('Error al conectar a BD: ', error);
+            process.exit();
+        }
+        
     }
 
     middlewares(){

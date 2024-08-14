@@ -1,14 +1,10 @@
-import { model, Schema } from 'mongoose';
+import { sequelize } from "../db/connection"
+import { DataTypes } from "sequelize"
 
-
-const ProductSchema = new Schema({
-    name: String,
-    description: String,
-    price: Number,
-    category: String,
-    stock: Number,
-}, {
-    timestamps: true,
-});
-
-export default model('products', ProductSchema);
+const ProductModel = sequelize.define('product',{
+    name:{
+        type: String,
+        allowNull: DataTypes
+    },
+    
+})
