@@ -1,7 +1,7 @@
 import { sequelize } from "../db/connection"
 import { DataTypes } from "sequelize"
 
-const ProductModel = sequelize.define('product',{
+export const ProductModel = sequelize.define('product',{
     name:{
         type: DataTypes.STRING,
         allowNull: false
