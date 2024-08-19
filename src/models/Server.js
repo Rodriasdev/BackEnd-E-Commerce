@@ -7,6 +7,7 @@ import { sequelize } from "../db/connection.js";
 import { createTables } from "../db/relations.js";
 import userRoutes from "../routes/user.routes.js";
 import compraRoutes from "../routes/compra.routes.js";
+import ventaRoutes from "../routes/ventas.routes.js";
 
 class Server {
 
@@ -42,6 +43,7 @@ class Server {
         this.app.use('/api', productRoutes)
         this.app.use('/api', userRoutes)
         this.app.use('/api', compraRoutes)
+        this.app.use('/api', ventaRoutes)
     }
 
     listen(){
