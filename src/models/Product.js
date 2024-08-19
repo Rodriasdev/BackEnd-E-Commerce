@@ -1,4 +1,4 @@
-import { sequelize } from "../db/connection"
+import { sequelize } from "../db/connection.js"
 import { DataTypes } from "sequelize"
 
 export const ProductModel = sequelize.define('product',{
@@ -14,11 +14,11 @@ export const ProductModel = sequelize.define('product',{
         type: DataTypes.FLOAT,
         allowNull: false
     },
-    Stock: {
+    stock: {
         type: DataTypes.BOOLEAN,
         defaultValue: true
     },
-    SKU: {
+    sku: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
@@ -26,8 +26,13 @@ export const ProductModel = sequelize.define('product',{
         type: DataTypes.STRING,
         allowNull:false
     },
-    imagen_url: {
+    brand: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull: true
+    },
+    rating: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+        defaultValue: 0
     }
 })

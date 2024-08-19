@@ -4,6 +4,9 @@ import morgan from "morgan";
 import { PORT } from '../config/conf.js'
 import productRoutes from '../routes/productos.routes.js'
 import { sequelize } from "../db/connection.js";
+import { createTables } from "../db/relations.js";
+import userRoutes from "../routes/user.routes.js";
+import compraRoutes from "../routes/compra.routes.js";
 
 class Server {
 
@@ -20,6 +23,7 @@ class Server {
     async dbConnect(){
         try {
             await sequelize.authenticate()
+            await createTables()
             console.log('Base de datos conectada')
         } catch (error) {
             console.log('Error al conectar a BD: ', error);
@@ -36,6 +40,8 @@ class Server {
 
     routes(){
         this.app.use('/api', productRoutes)
+        this.app.use('/api', userRoutes)
+        this.app.use('/api', compraRoutes)
     }
 
     listen(){
