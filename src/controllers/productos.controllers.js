@@ -29,8 +29,8 @@ class ProducControllers {
     
         try {
             const {id} = req.params
-            
-            await ProductService.create(req.body, id)
+            console.log(id)
+            await ProductService.create(req.body,id)
             return res.status(201).json({
                 message: 'Producto creado'
             })

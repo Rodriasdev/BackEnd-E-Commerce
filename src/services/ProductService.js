@@ -8,10 +8,13 @@ class ProductService {
     }
 
 
-    async create(product, id) {
-        
-        return await ProductModel.create(product);
+    async create(productData, vendedorId) {
+        return await ProductModel.create({
+            ...productData, 
+            vendedorId: vendedorId 
+        });
     }
+    
 
 }
 
